@@ -1,8 +1,10 @@
+/* remove the white border around the screen */
 * {
   padding: 0px;
   margin: 0;
 }
 
+/* animations */
 @keyframes slideIn {
   0% {
     transform: translateY(75%);
@@ -18,6 +20,21 @@
   }
 }
 
+@keyframes slideOut {
+  0% {
+    transform: translateY(-75%);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-5%);
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 0;
+  }
+}
+
 @keyframes slideInContents {
   0% {
     transform: translateY(-50%);
@@ -30,10 +47,34 @@
   }
 }
 
+@keyframes slideInBar {
+  0% {
+    transform: translateY(-75%);
+    opacity: 0.3;
+  }
+
+  100 {
+    transform: translateY(0%)
+  }
+}
+
+@keyframes slideOutBar {
+  0% {
+    transform: translateY(225%);
+    opacity: 0.6;
+  }
+
+  100 {
+    transform: translateY(0%);
+  }
+}
+
+/* hide the scrollbar */
 ::-webkit-scrollbar {
   display: none;
 }
 
+/* Colors */
 :root {
   --c1: #F6FBF4;
   --c2: #F5DF99;
@@ -41,18 +82,63 @@
   --c4: #e4d090;
   --c5: #bcc1b1;
   --c5_5: #a2a798;
+  --search-bar-bg: #e6e6e6;
 }
 
+/* body, change the background-color */
 body {
   background-color: var(--c1);
 }
 
+/* for the sticky search bar */
+.search-bar {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  position: relative;
+  transition: 1s;
+  margin: 15px 10px;
+}
+
+/* sticky search bar  */
+.fixs {
+  position: fixed;
+  animation: 0.5s  slideInBar;
+}
+
+/* play animation when the search bar reaches the top of the page */
+.bartop {
+  position: relative;
+  animation: 0.8s slideOutBar;
+}
+
+input[type=text] {
+  width: 55%;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  height: 60px;
+  border-radius: 100px;
+  padding: 10px 25px;
+  text-decoration: none;
+  border: none;
+  font-size: 20px;
+  background-color: var(--search-bar-bg)
+}
+
+input[type=text]:focus {
+  width: 75%;
+  outline: grey;
+}
+
+/* the container parent */
 .main {
+  margin-top: 2%;
   width: 100%;
   padding: 1px;
   transition: 0.5s;
 }
 
+/* the container for the surah */
 .container {
   width: 100% auto;
   border: 2px solid var(--c3);
@@ -63,6 +149,11 @@ body {
   height: fit-content;
   transition: 0.8s;
   margin: 5px auto;
+  display: block;
+}
+
+.show {
+  display: block;
 }
 
 .container:hover {
@@ -71,6 +162,7 @@ body {
   background-color: var(--c5_5);
 }
 
+/* for the texts, fonts, sizes, etc. */
 h1 {
   font-family: 'Arial';
   font-weight: bold;
@@ -91,9 +183,10 @@ label {
   font-size: 20px;
 }
 
+/* for the audio player */
 .audio-player-container {
   max-width: 100%;
-  position: fixed;    
+  position: fixed;
   top: 95;
   bottom: 0%;
   width: 100%;
@@ -102,6 +195,10 @@ label {
   animation: slideIn 1s;
   display: flex;
   flex-direction: column;
+}
+
+.audio-player-container.out {
+  animation: slideOut 1s;
 }
 
 .audio-player-container label {
