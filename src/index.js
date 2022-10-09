@@ -13,6 +13,7 @@ const createWindow = () => {
     width: 800,
     height: 600,
     title: "Myquran - Desktop Version",
+    icon: __dirname
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
