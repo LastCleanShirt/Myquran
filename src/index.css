@@ -106,6 +106,14 @@ body {
   animation: 0.5s  slideInBar;
 }
 
+.fixs input[type=text] {
+  width: 65%;
+}
+
+.fixs input[type=text]:focus {
+  width: 70%;
+}
+
 /* play animation when the search bar reaches the top of the page */
 .bartop {
   position: relative;
@@ -113,20 +121,20 @@ body {
 }
 
 input[type=text] {
-  width: 55%;
+  width: 90%;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
-  height: 60px;
+  height: 75px;
   border-radius: 100px;
   padding: 10px 25px;
   text-decoration: none;
   border: none;
-  font-size: 20px;
+  font-size: 30px;
   background-color: var(--search-bar-bg)
 }
 
 input[type=text]:focus {
-  width: 75%;
+  width: 95%;
   outline: grey;
 }
 
@@ -136,6 +144,7 @@ input[type=text]:focus {
   width: 100%;
   padding: 1px;
   transition: 0.5s;
+  margin-bottom: 120px;
 }
 
 /* the container for the surah */

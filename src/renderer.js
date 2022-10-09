@@ -39,10 +39,9 @@ $(document).ready(function () {
 
 	/* Search bar, search for the correct surah */
 	$("input").on("keyup", function() {
-		var input = $("input")
     var value = $(this).val().toLowerCase();
     $(".container").filter(function() {
-      $(this).toggle($(this).text().indexOf(value) > -1)
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });
 
