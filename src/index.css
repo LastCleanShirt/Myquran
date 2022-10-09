@@ -1,0 +1,114 @@
+* {
+  padding: 0px;
+  margin: 0;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(75%);
+    opacity: 0;
+  }
+  75% {
+    transform: translateY(5%);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInContents {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0%);
+    opacity: 1
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  --c1: #F6FBF4;
+  --c2: #F5DF99;
+  --c3: #d1d7cf;
+  --c4: #e4d090;
+  --c5: #bcc1b1;
+  --c5_5: #a2a798;
+}
+
+body {
+  background-color: var(--c1);
+}
+
+.main {
+  width: 100%;
+  padding: 1px;
+  transition: 0.5s;
+}
+
+.container {
+  width: 100% auto;
+  border: 2px solid var(--c3);
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-top: 5px;
+  background-color: var(--c3);
+  height: fit-content;
+  transition: 0.8s;
+  margin: 5px auto;
+}
+
+.container:hover {
+  border: 2px solid var(--c5);
+  cursor: pointer;
+  background-color: var(--c5_5);
+}
+
+h1 {
+  font-family: 'Arial';
+  font-weight: bold;
+  color: black;
+}
+
+h2 {
+  font-family: 'Arial';
+  font-weight: lighter;
+  color: black;
+}
+
+label {
+  font-family: 'Arial';
+  color: grey;
+  display: flex;
+  width: fit-content;
+  font-size: 20px;
+}
+
+.audio-player-container {
+  max-width: 100%;
+  position: fixed;    
+  top: 95;
+  bottom: 0%;
+  width: 100%;
+  max-height: fit-content;
+  height: fit-content;
+  animation: slideIn 1s;
+  display: flex;
+  flex-direction: column;
+}
+
+.audio-player-container label {
+  font-size: 20px;
+  height: fit-content;
+  padding: 10px 20px;
+}
+.audio-player-container {
+  background-color: white;
+}
