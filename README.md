@@ -19,5 +19,5 @@ For bulding, you need to have atleast **Node v16**, after that you just need to 
 - Autoplay audio
 
 #  Upcoming features
-- [] Linux & MacOS ports
-- [] Android port
+- [ ] Linux & MacOS ports
+- [ ] Android port
