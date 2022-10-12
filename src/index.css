@@ -76,13 +76,15 @@
 
 /* Colors */
 :root {
-  --c1: #F6FBF4;
-  --c2: #F5DF99;
-  --c3: #d1d7cf;
-  --c4: #e4d090;
-  --c5: #bcc1b1;
-  --c5_5: #a2a798;
-  --search-bar-bg: #e6e6e6;
+  --c1: lightblue;
+  --c2: #E3EBFF;
+  --c3: #FF8787;
+  --title: #3C2317;
+  --c5: #FF9494;
+  --c5_5: #E7F6F2;
+  --label: #E7F6F2;
+  --search-bar-bg: #E7F0FF;
+  --search-bar-bg-hover: white;
 }
 
 /* body, change the background-color */
@@ -90,6 +92,7 @@ body {
   background-color: var(--c1);
 }
 
+/* Main */
 /* for the sticky search bar */
 .search-bar {
   width: 100%;
@@ -97,7 +100,7 @@ body {
   justify-content: center;
   position: relative;
   transition: 1s;
-  margin: 15px 10px;
+  margin-top: 10px;
 }
 
 /* sticky search bar  */
@@ -110,8 +113,13 @@ body {
   width: 65%;
 }
 
-.fixs input[type=text]:focus {
+.fixs input[type=text]:focus, .fixs input[type=text]:hover, input:hover {
   width: 70%;
+  background-color: white;
+}
+
+input:focus, input:hover {
+  background-color: white;
 }
 
 /* play animation when the search bar reaches the top of the page */
@@ -130,7 +138,7 @@ input[type=text] {
   text-decoration: none;
   border: none;
   font-size: 30px;
-  background-color: var(--search-bar-bg)
+  background-color: white;
 }
 
 input[type=text]:focus {
@@ -150,11 +158,11 @@ input[type=text]:focus {
 /* the container for the surah */
 .container {
   width: 100% auto;
-  border: 2px solid var(--c3);
+  border: 2px solid var(--c2);
   border-radius: 5px;
   padding: 5px 10px;
   margin-top: 5px;
-  background-color: var(--c3);
+  background-color: var(--c2);
   height: fit-content;
   transition: 0.8s;
   margin: 5px auto;
@@ -175,13 +183,13 @@ input[type=text]:focus {
 h1 {
   font-family: 'Arial';
   font-weight: bold;
-  color: black;
+  color: var(--title);
 }
 
 h2 {
   font-family: 'Arial';
   font-weight: lighter;
-  color: black;
+  color: var(--title);
 }
 
 label {
@@ -202,8 +210,8 @@ label {
   max-height: fit-content;
   height: fit-content;
   animation: slideIn 1s;
-  display: flex;
   flex-direction: column;
+  display: none;
 }
 
 .audio-player-container.out {

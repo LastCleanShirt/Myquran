@@ -1,21 +1,30 @@
-export function audioPlay (t, plyr, res) {
+export function audioPlay (t, player, res) {
   var audioLink = res["audio"]
-  $('audio').each(function(){
+  var title = res["nama_latin"]
+  console.log(audioLink)
+  /*$('audio').each(function(){
     this.pause(); // Stop playing
     this.currentTime = 0; // Reset time
-  });
-  $(".audio-player-container").toggleClass("out")
-  $(".audio-player-container").remove();
+  });*/
+  //$(".audio-player-container").toggleClass("out")
+  //$(".audio-player-container").remove();
+  $(".audio-player-container").css("display", "flex")
+  $(".audio-player-container label").text(res["nama_latin"])
+  /*$("source").remove()
+  $("audio").append("<source src='"+audioLink+"' type='audio/mp3'>")*/
+  $("audio").attr("src", audioLink)
 
-  $(".main").append(`
-    <div class="audio-player-container">
-    <label>`+res["nama_latin"]+`</label>
-      <div class="js-plyr">
-        <audio controls="" crossorigin="" class="player" autoplay >
-          <source src="`+audioLink+`" type="audio/ogg" />
-        </audio>
-      </div>
-    </div>
-    `)
-    plyr.setup(document.querySelectorAll('.js-plyr'), {});
+  player.source = {
+    type: 'audio',
+    title: title,
+    sources: [
+     {
+          src: audioLink,
+          type: "audio/mp3"
+      },
+    ],
+  };
+  //player = new Plyr(".js-player");
+
+    //plyr.setup(document.querySelectorAll('.js-plyr'), {});
 }

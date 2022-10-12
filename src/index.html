@@ -4,14 +4,12 @@
   <title>MyQuran - Desktop version</title>
   <head>
     <meta charset="UTF-8" />
-    <title>Hello World!</title>
     <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.plyr.io/1.6.16/plyr.css">
-    <script src="https://cdn.plyr.io/1.6.16/plyr.js" type="module"></script>
+    <script src="extra/filter-plugin.js" type="module"></script>
+    <link rel="stylesheet" href="./plyr.min.css">
     <script src="getSurah.js" type="module"></script>
     <script src="container.js" type="module"></script>
     <script src="audioPlayer.js" type="module"></script>
-    <script src="renderer.js" type="module"></script>
     <link rel="stylesheet" href="index.css" />
 
   </head>
@@ -20,6 +18,15 @@
       <input type="text" name="search" placeholder="Search for surah...">
     </div>
     <div class="main"></div>
-    <script src="https://cdn.korzh.com/metroui/v4.5.1/js/metro.min.js"></script>
+    <div class="audio-player-container">
+    <label>LABEL</label>
+      <div class="js-plyr">
+        <audio controls class="player" autoplay >
+          <source src="" type="audio/mp3">
+        </audio>
+      </div>
+    </div>
+    <script src="../node_modules/Plyr/dist/plyr.js"></script>
+    <script src="renderer.js" type="module"></script>
   </body>
 </html>

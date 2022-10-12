@@ -3,9 +3,19 @@ import { renderContainer } from "./container.js"
 import { audioPlay } from "./audioPlayer.js"
 
 
+/*player.on("play", emitPlayerEvent);
+
+function emitPlayerEvent(event) {
+  document.getElementById("teststring").innerHTML = !event.detail.plyr
+    ? "The plyr object DOES NOT exist!"
+    : "The plyr object exists!";
+  console.log(event);
+}*/
+
+
 
 $(document).ready(function () {
-	//const plyr = new Plyr('.player');
+	var player = new Plyr(document.querySelector("audio"));
 	//let plyr = new Plyr(document.querySelector('.js-player'));
 	/* Functions */
 	function playNextTafsir(containerID){
@@ -38,12 +48,11 @@ $(document).ready(function () {
 	});
 
 	/* Search bar, search for the correct surah */
-	$("input").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $(".container").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
+	$("input").filterElements({
+		parentElementWrapper: ".main",
+		childElementToFilter: ".container",
+		caseSensitive: false
+	});
 
 	/* Get Surah List
 	*/
@@ -59,24 +68,40 @@ $(document).ready(function () {
 	/* Play the tafsir on click container
 	*/
 	var containerID;
+	player = new Plyr(".js-player");
 	$(document).on("click",".container", function () {
 		containerID = $(this).attr('id'); // or var clickedBtnID = this.id
+		containerID = parseInt(containerID)
+		console.log(containerID)
 		var recitation = getSurahRecitation(containerID)
-
 		recitation.then(function(res){
 			//res = JSON.parse(res)
-			audioPlay(this, plyr, res)
+			audioPlay(this, player, res)
+			console.log(player);
 		})
+		containerID += 1
 		console.log(containerID)
-		// Play the next tafsir if this one is done
-		//$("audio").onended = playNextTafsir(containerID)
+	});
+		// Always listen if the audio is done playing, then play the next one and so on
+	$("audio").on('ended',  function() {
+		console.log("Surah ended")
+		 // functions that I'd like to add
+		 var recitation = getSurahRecitation(containerID)
+		 console.log(containerID)
+		 recitation.then(function(res){
+			 //res = JSON.parse(res)
+			 audioPlay(this, player, res)
+			 console.log(player);
+			 player.play()
+		 })
+		 containerID += 1
+		 console.log(containerID)
+
+	 });
+	player.on('ready', function() {
+		console.log("ready")
+		player.play();
 	});
 
-	// Play the next tafsir if this one is done
-	//$("audio").onended = playNextTafsir(containerID)
-
-	if ($("audio").duration == $("audio").currentTime) {
-		console.log("done")
-	}
 
 })

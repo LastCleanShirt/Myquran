@@ -11,6 +11,12 @@
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\""
   },
+  "build": {
+    "appId": "com.arya.myquran",
+    "artifactName": "myquran-1.0.0.ext",
+    "executableName": "MyQuran",
+    "compression": "maximum"
+  },
   "keywords": [],
   "author": "darea",
   "license": "MIT",
@@ -43,7 +49,8 @@
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
-    "jquery": "^3.6.1"
+    "jquery": "^3.6.1",
+    "plyr": "^3.7.2"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.65",
