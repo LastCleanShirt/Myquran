@@ -79,12 +79,16 @@ $(document).ready(function () {
 			audioPlay(this, player, res)
 			console.log(player);
 		})
-		containerID += 1
+		//containerID += 1
 		console.log(containerID)
 	});
 		// Always listen if the audio is done playing, then play the next one and so on
 	$("audio").on('ended',  function() {
-		console.log("Surah ended")
+		if ( containerID < 114 || containerID == 113){
+			containerID  += 1
+		}
+		if (containerID < 114){
+			console.log("Surah ended")
 		 // functions that I'd like to add
 		 var recitation = getSurahRecitation(containerID)
 		 console.log(containerID)
@@ -94,8 +98,20 @@ $(document).ready(function () {
 			 console.log(player);
 			 player.play()
 		 })
-		 containerID += 1
 		 console.log(containerID)
+	 } else if (containerID == 114) {
+		 console.log("An Nas Ended, Start from al baqarah")
+		 var recitation = getSurahRecitation(containerID)
+		 console.log(containerID)
+		 recitation.then(function(res){
+			 //res = JSON.parse(res)
+			 audioPlay(this, player, res)
+			 console.log(player);
+			 player.play()
+		 })
+		 containerID = 0
+
+	 }
 
 	 });
 	player.on('ready', function() {
