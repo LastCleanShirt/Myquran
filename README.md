@@ -1,22 +1,23 @@
 # Myquran
 
-An electron-based app to play Quran Tafsir. Note that this repo is made for the sole purpose of showing this to my teacher.
+An electron-based app to play Quran Tafsir.
 
 # Requirements
-To install the app you need to make sure that you and your computer meets a few requirements
-- Have a WiFi connection
-- Have a Windows 10+ (Linux and MacOS ports is on the way)
-For installation instructions, you can go to [Installation Section](# Installation). For building instructions, you can go to [Building Section](# Building)
+OS:
+- Windows 10+
 
 # Installation
-Installation [page](https://github.com/LastCleanShirt/Myquran/releases)
+1. Download the .exe file from [here](https://github.com/LastCleanShirt/Myquran/releases)
+2. Double-click to install
+3. When the app is installing, you don't need to do anything other than wait
+4. Myquran has been installed (If you want to open the app, simply find the app on the windows logo, you don't need to click the .exe again)
 
 # Building
 For bulding, you need to have atleast **Node v16**, after that you just need to clone this repo, and type `npm run make`  
 
 # Features
 - Play The Holy Quran tafsir/audio
-- Autoplay audio
+- Find chapters/verse
 
 #  Upcoming features
 - [ ] Linux & MacOS ports

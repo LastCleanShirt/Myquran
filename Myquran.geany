@@ -21,6 +21,7 @@ indent_mode=2
 name=Myquran
 base_path=C:\\Users\\darea\\Documents\\Coding Arya\\JS\\myquran
 description=
+file_patterns=
 
 [long line marker]
 long_line_behaviour=1
@@ -28,4 +29,10 @@ long_line_column=72
 
 [files]
 current_page=0
-FILE_NAME_0=0;Javascript;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cdarea%5CDocuments%5CCoding%20Arya%5CJS%5Cmyquran%5Csrc%5Crenderer.js;0;4
+FILE_NAME_0=122;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cdarea%5CDocuments%5CCoding%20Arya%5CC%2B%2B%5Cleetcodeproblems%5Ca.cpp;0;4
+
+[build-menu]
+C++FT_00_LB=_Compile
+C++FT_00_CM=g++ -Wall -c "%f"
+C++FT_00_WD=-std=c++17 -O2 -Wall -Wextra -pedantic -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wcast-qual -Wcast-align -Wno-unused-result -Wno-sign-conversion
+filetypes=C++;
